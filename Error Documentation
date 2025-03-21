@@ -1,0 +1,31 @@
+
+
+Issue 1: CSV Import Error (q3q4 File)
+
+Error: When importing the q3q4.csv file into pgAdmin, an error was encountered indicating an issue with a comma in row 2 (date column at the end).
+Resolution: Opened the file in Excel, identified and removed the problematic entry, then reattempted the upload.
+
+Issue 2: Invalid Input Syntax for Integer (q1 File - birthyear Column)
+
+During import, pgAdmin returned the following error:
+ERROR: invalid input syntax for type integer: ""
+CONTEXT: COPY q1, line 34, column birthyear: ""
+Cause: The birthyear column contained empty values, which are incompatible with the INTEGER data type.
+
+Solution: Handling Empty Values in birthyear Column
+
+Initially changed birthyear to a STRING to allow the data to be imported.
+Replaced empty values with 0 to maintain integer compatibility:
+UPDATE q1
+SET birthyear = '0'
+WHERE birthyear = '';
+
+Verified the update:
+SELECT birthyear FROM q1 WHERE birthyear = 0;
+Converted birthyear back to an INTEGER:
+ALTER TABLE q1
+ALTER COLUMN birthyear TYPE INTEGER USING birthyear::INTEGER;
+
+Next Steps
+
+Apply the same data cleaning and conversion steps for q2, q3, and q4 before importing into the SQL database.
