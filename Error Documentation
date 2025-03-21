@@ -25,4 +25,4 @@ ALTER TABLE q1
 ALTER COLUMN birthyear TYPE INTEGER USING birthyear::INTEGER;
 
 Next Steps:
-Apply the same data cleaning and conversion steps for q2, q3, and q4 before importing into the SQL database.
+Apply the same data cleaning and conversion steps for q2, q3, and q4 
