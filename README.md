@@ -4,6 +4,8 @@ This analysis aims to explore the differences in how annual members and casual r
 
 Business Questions
 How do annual members and casual riders use Cyclistic bikes differently?
+
 Why would casual riders buy Cyclistic annual memberships?
+
 How can Cyclistic use digital media to influence casual riders to become members?
 
