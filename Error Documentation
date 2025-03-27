@@ -26,3 +26,9 @@ ALTER COLUMN birthyear TYPE INTEGER USING birthyear::INTEGER;
 
 Next Steps:
 Apply the same data cleaning and conversion steps for q2, q3, and q4 
+
+Issue 3: Checking Null Values from q1- q4 to ensure no missing values 
+
+Table Q4 reported that there was 78827 rows that are affected with missing gender, birthyear. Since gender and birthyear are not important when importing to Python will keep all columns except gender and birthyear.
+
+
