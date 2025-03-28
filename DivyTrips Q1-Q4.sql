@@ -141,7 +141,23 @@ Update q4
 Set birthyear = 0
 Where birthyear = ''
 */
-
+/*
 Alter table q4
 	Alter Column birthyear TYPE Integer using birthyear:: INTEGER;
-
+*/
+/*
+Select *
+From q4
+Where trip_id is Null
+	OR start_time is Null
+	OR end_time is Null
+	OR bikeid is Null
+	OR tripduration is Null
+	OR from_station_id is Null
+	OR from_station_name is Null
+	OR to_station_id is Null
+	OR to_station_name is Null
+	OR usertype is Null
+	OR gender is Null
+	Or birthyear is Null
+*/
