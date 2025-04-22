@@ -1,163 +1,145 @@
-/*Create Table Q1Q2 (
-ID int,
-"name" varchar (350),
-city varchar (100),
-latitude Float,
-longitude Float,
-dpcapacity	Integer,
-online_date Timestamp
-)*/
+-- Create tables for Q1Q2 and Q3Q4
+CREATE TABLE Q1Q2 (
+    ID INT,
+    name VARCHAR(350),
+    city VARCHAR(100),
+    latitude FLOAT,
+    longitude FLOAT,
+    dpcapacity INTEGER,
+    online_date TIMESTAMP
+);
 
-/*Create Table Q3Q4 (
-ID int,
-"name" varchar (350),
-city varchar (100),
-latitude Float,
-longitude Float,
-dpcapacity	Integer,
-online_date Timestamp,
-extra_column TEXT 
-) */
+CREATE TABLE Q3Q4 (
+    ID INT,
+    name VARCHAR(350),
+    city VARCHAR(100),
+    latitude FLOAT,
+    longitude FLOAT,
+    dpcapacity INTEGER,
+    online_date TIMESTAMP,
+    extra_column TEXT 
+);
+
+-- Create and clean Q1 table
+CREATE TABLE Q1 (
+    trip_id INT,
+    start_time TIMESTAMP,
+    end_time TIMESTAMP,
+    bikeid INT,
+    tripduration INT,
+    from_station_id INT,
+    from_station_name VARCHAR(350),
+    to_station_id INT,
+    to_station_name VARCHAR(350),
+    usertype VARCHAR(50),
+    gender VARCHAR(30),
+    birthyear VARCHAR(4)
+);
+
+UPDATE Q1
+SET birthyear = '0'
+WHERE birthyear = '';
+
+ALTER TABLE Q1
+ALTER COLUMN birthyear TYPE INTEGER USING birthyear::INTEGER;
+
+-- Create and clean Q2 table
+CREATE TABLE Q2 (
+    trip_id INT,
+    start_time TIMESTAMP,
+    end_time TIMESTAMP,
+    bikeid INT,
+    tripduration INT,
+    from_station_id INT,
+    from_station_name VARCHAR(350),
+    to_station_id INT,
+    to_station_name VARCHAR(350),
+    usertype VARCHAR(50),
+    gender VARCHAR(30),
+    birthyear VARCHAR(4)
+);
+
+UPDATE Q2
+SET birthyear = '0'
+WHERE birthyear = '';
+
+ALTER TABLE Q2
+ALTER COLUMN birthyear TYPE INTEGER USING birthyear::INTEGER;
+
+-- Create and clean Q3 table
+CREATE TABLE Q3 (
+    trip_id INT,
+    start_time TIMESTAMP,
+    end_time TIMESTAMP,
+    bikeid INT,
+    tripduration INT,
+    from_station_id INT,
+    from_station_name VARCHAR(350),
+    to_station_id INT,
+    to_station_name VARCHAR(350),
+    usertype VARCHAR(50),
+    gender VARCHAR(30),
+    birthyear VARCHAR(4)
+);
+
+UPDATE Q3
+SET birthyear = '0'
+WHERE birthyear = '';
+
+ALTER TABLE Q3
+ALTER COLUMN birthyear TYPE INTEGER USING birthyear::INTEGER;
+
+-- Create and clean Q4 table
+CREATE TABLE Q4 (
+    trip_id INT,
+    start_time TIMESTAMP,
+    end_time TIMESTAMP,
+    bikeid INT,
+    tripduration INT,
+    from_station_id INT,
+    from_station_name VARCHAR(350),
+    to_station_id INT,
+    to_station_name VARCHAR(350),
+    usertype VARCHAR(50),
+    gender VARCHAR(30),
+    birthyear VARCHAR(4)
+);
+
+UPDATE Q4
+SET birthyear = '0'
+WHERE birthyear = '';
+
+ALTER TABLE Q4
+ALTER COLUMN birthyear TYPE INTEGER USING birthyear::INTEGER;
+
+-- Check for null values in Q4
+SELECT *
+FROM Q4
+WHERE trip_id IS NULL
+   OR start_time IS NULL
+   OR end_time IS NULL
+   OR bikeid IS NULL
+   OR tripduration IS NULL
+   OR from_station_id IS NULL
+   OR from_station_name IS NULL
+   OR to_station_id IS NULL
+   OR to_station_name IS NULL
+   OR usertype IS NULL
+   OR gender IS NULL
+   OR birthyear IS NULL;
+-- Checking morning, afternoon, evening
+
+SELECT 
+    usertype,
+    CASE 
+        WHEN EXTRACT(HOUR FROM start_time) BETWEEN 5 AND 11 THEN 'Morning'
+        WHEN EXTRACT(HOUR FROM start_time) BETWEEN 12 AND 17 THEN 'Afternoon'
+        WHEN EXTRACT(HOUR FROM start_time) BETWEEN 18 AND 23 THEN 'Evening'
+        ELSE 'Night'
+    END AS time_of_day,
+    COUNT(*) AS total_rides
+FROM q1_q4_2017
+GROUP BY usertype, time_of_day
+ORDER BY time_of_day, total_rides DESC;
 
 
-/*
-Create Table Q1 (
-trip_id int,
-start_time Timestamp,
-end_time Timestamp,
-bikeid int,
-tripduration int,
-from_station_id int,
-from_station_name varchar (350),
-to_station_Id int,
-to_station_name varchar (350),
-usertype varchar (50),
-gender varchar (30),
-birthyear varchar(4)
-)
-*/
-
---Select birthyear from q1
-/*
-Update Q1
-Set birthyear = 0
-Where Birthyear ='';
-*/
-/*
-Select birthyear
-from Q1
-Where birthyear = '0';
-*/
-/*
-Alter Table q1
-	Alter Column birthyear TYPE INTEGER USING birthyear:: INTEGER;
-*/
-
---Select birthyear FROM q1
-/*
-Create Table q2 (
-trip_id int,
-start_time Timestamp,
-end_time Timestamp,
-bikeid int,
-tripduration int,
-from_station_id int,
-from_station_name varchar (350),
-to_station_Id int,
-to_station_name varchar (350),
-usertype varchar (50),
-gender varchar (30),
-birthyear varchar(4)
-)
-*/
-/*
-Update q2 
-Set birthyear = 0
-Where birthyear = '';
-*/
-/*
-ALTER table q2
-	Alter Column birthyear TYPE integer USING birthyear :: Integer
-*/
-
-/*
-Select birthyear 
-from q2
-Where birthyear = '0'
-*/
-
-/*
-Create Table q3 (
-trip_id int,
-start_time Timestamp,
-end_time Timestamp,
-bikeid int,
-tripduration int,
-from_station_id int,
-from_station_name varchar (350),
-to_station_Id int,
-to_station_name varchar (350),
-usertype varchar (50),
-gender varchar (30),
-birthyear varchar(4)
-)
-*/
-
-/*
-Update q3 
-Set birthyear = 0
-Where birthyear = ''
-*/
-
-/*
-
-Alter Table q3
-	Alter Column birthyear TYPE INTEGER USING birthyear :: INTEGER;
-*/
-
-/*
-Select birthyear
-from q3 
-Where birthyear = 0
-*/
-/*
-Create Table q4 (
-trip_id int,
-start_time Timestamp,
-end_time Timestamp,
-bikeid int,
-tripduration int,
-from_station_id int,
-from_station_name varchar (350),
-to_station_Id int,
-to_station_name varchar (350),
-usertype varchar (50),
-gender varchar (30),
-birthyear varchar(4)
-)
-*/
-/*
-Update q4
-Set birthyear = 0
-Where birthyear = ''
-*/
-/*
-Alter table q4
-	Alter Column birthyear TYPE Integer using birthyear:: INTEGER;
-*/
-/*
-Select *
-From q4
-Where trip_id is Null
-	OR start_time is Null
-	OR end_time is Null
-	OR bikeid is Null
-	OR tripduration is Null
-	OR from_station_id is Null
-	OR from_station_name is Null
-	OR to_station_id is Null
-	OR to_station_name is Null
-	OR usertype is Null
-	OR gender is Null
-	Or birthyear is Null
-*/
