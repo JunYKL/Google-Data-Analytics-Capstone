@@ -148,4 +148,15 @@ SELECT
   AVG(EXTRACT(EPOCH FROM (end_time - start_time))) / 60 AS avg_ride_duration_minutes
 FROM 
   q1_q4_2017
-
+-- Top 10 ride destination
+Select 
+    from_station_name,
+    to_station_name,
+    count(*) AS ride_frequency
+From q1_q4_2017
+Group By 
+    from_station_name,
+    to_station_name
+Order By
+    ride_frequency desc 
+    Limit 10;
