@@ -34,10 +34,22 @@ If these riders take frequent trips in summer or weekends, a membership could sa
    
 Target social media and mobile ads during peak casual usage months (May–August).
 
-Use geo-targeted ads near scenic and tourist-heavy routes (e.g., Theater on the Lake, Lake Shore Dr) with prompts like:
+Use geo-targeted ads near scenic and tourist-heavy routes (Theater on the Lake, Lake Shore Dr) with prompts like:
 “Ride more? Save more. Go annual and enjoy unlimited rides!”
 
 Share personalized summaries: “You rode 5 times last month. A membership would’ve saved you $X.”
+
+Insights
+
+Subscribers likely use the bikes for consistent, daily transportation (commuting), whereas casual users ride for leisure or occasional purposes, especially in popular scenic areas and during afternoons/evenings.
+
+Highlighting cost savings for frequent users.
+
+Offering seasonal discounts or flexible membership plans.
+
+Showing benefits like priority access, longer ride times, or bonus perks.
+
+Digital media campaigns should be seasonal and location-based to convert active casual users into committed members.
 
 
 Tableau Data Visualization
